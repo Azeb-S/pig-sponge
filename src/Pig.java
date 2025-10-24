@@ -58,14 +58,22 @@ public class Pig {
                     if (vowels.indexOf(first) != -1) {
                         result += newWOrd + " ";
                     } else {
-                        result += newWOrd.substring(1) + first + "ay";
+                        result += newWOrd.substring(1) + first + "ay ";
                     }
                     newWOrd = "";
                 }
             }
         }
+        if (!newWOrd.isEmpty()) {
+            char first = newWOrd.charAt(0);
+            if (vowels.indexOf(first) != -1) {
+                result += newWOrd;
+            } else {
+                result += newWOrd.substring(1) + first + "ay";
+            }
+        }
 
-        return newWOrd;
+        return result.trim();
     }
 
     // Method to help with testing, you do not need to read this.
